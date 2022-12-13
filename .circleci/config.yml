@@ -6,8 +6,8 @@ jobs:
     steps:
         # Commands run in a Linux virtual machine environment
         - checkout
-        - run: docker build . -t cours-ci
-        - run: docker run -d -p 8080:8080 cours-ci
+        - run: docker build . -t orianesav/cours-ci
+        - run: docker run -d -p 8080:8080 orianesav/cours-ci
         - run: curl 127.0.0.1:8080
         - run: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
         - run: docker push orianesav/cours-ci:latest 
