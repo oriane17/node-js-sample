@@ -9,5 +9,4 @@ jobs:
         - run: docker build . -t cours-ci
         - run: docker run -d -p 8080:8080 cours-ci
         - run: curl 127.0.0.1:8080
-        - run: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-        - run: docker push cours-ci:latest 
+        - run: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin && docker push cours-ci:latest 
